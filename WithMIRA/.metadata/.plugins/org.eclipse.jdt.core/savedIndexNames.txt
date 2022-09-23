@@ -1,0 +1,5 @@
+INDEX VERSION 1.131+C:\JSP\WithMIRA\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+4111129317.index
+1976103059.index
+1292196302.index
