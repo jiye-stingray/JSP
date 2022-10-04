@@ -1,3 +1,5 @@
 INDEX VERSION 1.131
 C:\JSP\WithMIRA\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3969790957.index
 \Cafe\src\main\java
+C:\JSP\JSP\WithMIRA\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3969790957.index
+\Cafe\src\main\java
