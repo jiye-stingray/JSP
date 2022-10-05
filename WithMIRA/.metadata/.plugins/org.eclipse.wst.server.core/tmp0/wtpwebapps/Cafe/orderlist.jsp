@@ -12,7 +12,7 @@
 
 <section style = "position: fixed; left: 0; width:100%; height: 100%; top:80px; background-color: lightgray" >
 <h2 style ="text-align: center;">GSM 카페에 오신 걸 환영합니다</h2>
-
+<p style="postion:fixed; padding-left: 1200px">주문하기</p>
 <form name = "frm2" 
 	style = "display: flex; justify-content:center; text-align: center; align-items: center" >
 	<table border = 1>
