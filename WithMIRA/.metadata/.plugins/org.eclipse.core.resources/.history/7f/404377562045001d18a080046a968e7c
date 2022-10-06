@@ -1,0 +1,85 @@
+<%@page import="javax.security.auth.message.callback.PrivateKeyCallback.Request"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@include file="dbCon.jsp" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<jsp:include page="header.jsp"></jsp:include>
+<script type="text/javascript" src = "check1.js"></script>
+<section style = "position: fixed; left: 0; width:100%; height: 100%; top:80px; background-color: lightgray" >
+<h2 style ="text-align: center;">카페메뉴 수정하기</h2>
+
+<form name="frm" style ="display: flex; justify-content: center; text-align: center; align-items: center;">
+<table border="1">
+<%
+	request.setCharacterEncoding("utf-8");
+	PreparedStatement pstmt = null;
+	try{
+		
+	}
+
+%>
+
+<tr>
+	<td>주문번호</td>
+	<td><input type = "text" name = "orderno" readonly></td>
+</tr>
+<tr>
+	<td>고객번호</td>
+	<td><input type ="text" name="custno"></td>
+</tr>
+<tr>	
+	<td>고객이름</td>
+	<td><input type="text" name="custname"></td>
+</tr>
+<tr>
+	<td>메뉴번호</td>
+	<td>
+	<input type="radio" value="1" name="menuno"> 아메리카노 &nbsp;
+	<input type="radio" value="2" name="menuno"> 카페라떼 &nbsp;
+	<input type="radio" value="3" name="menuno"> 카페모카 &nbsp;
+	<input type="radio" value="4" name="menuno"> 돌체라때 &nbsp;
+	<input type="radio" value="5" name="menuno"> 콜드브루 &nbsp;
+	</td>
+</tr>
+<tr>
+	<td>수량</td>
+	<td>
+	<select>
+	<option>1개(추가 주문 시 선택)</option>
+	<option>2개</option>
+	<option>3개</option>
+	<option>4개</option>
+	<option>5개</option>
+	<option>6개</option>
+	<option>7개</option>
+	<option>8개</option>
+	<option>9개</option>
+	<option>10개</option>
+	</select>
+	</td>
+</tr>
+<tr>
+	<td>주문일자</td>
+	<td><input type = "text" name="orderdate" placeholder="예)20220105"></td>
+</tr>
+<tr>
+<td colspan="2">
+<input type="submit" value="수정하기" onclick="return modify()"> 
+<input type="button" value="취소" onclick="return search()">
+</td>
+</tr>
+
+</table>
+</form>
+
+</section>
+
+<jsp:include page="footer.jsp"></jsp:include>
+</body>
+</html>

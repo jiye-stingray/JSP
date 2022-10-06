@@ -55,3 +55,7 @@ function modify() {
 function search() {
 	window.location = "orderlist.jsp";
 }
+
+function modify(){
+	alert("회원정보 수정이 완료되었습니다");
+}

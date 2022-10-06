@@ -16,60 +16,74 @@
 
 <form name="frm" style ="display: flex; justify-content: center; text-align: center; align-items: center;">
 <table border="1">
+<%
+	request.setCharacterEncoding("utf-8");
+	PreparedStatement pstmt = null;
+	
+	String orderno = request.getParameter("orderno");
+	String custno = "";
+	String custname = "";
+	String menuno = "";
+	String amount = "";
+	String orderdate = "";
+	
+	
+	try{
+		
+		String sql = "select * from order_tbl where orderno = " + orderno;
+		pstmt = conn.prepareStatement(sql);
+		ResultSet rs = pstmt.executeQuery();
+		rs.next();
+		orderno = rs.getString(1);
+		custno = rs.getString(2);
+		custname = rs.getString(3);
+		menuno = rs.getString(4);
+		amount = rs.getString(5);
+		orderdate = rs.getString(6);
+		
+	}
+	catch(Exception e){
+		e.printStackTrace();
+	}
+
+%>
+
 <tr>
 	<td>주문번호</td>
-	<%
-		request.setCharacterEncoding("utf-8");
-		PreparedStatement pstmt = null;
-		String orderno = "";
-		
-		try{
-			String sql = "select max(orderno) + 1 from order_tbl";
-			pstmt = conn.prepareStatement(sql);
-			
-			ResultSet rs = pstmt.executeQuery();
-			rs.next();
-			orderno = rs.getString(1);
-			
-		}
-		catch(Exception e){
-			e.printStackTrace();
-		}
-	%>
-	<td><input type = "text" value = "<%=orderno%>" readonly></td>
+	<td><input type = "text" name = "orderno" value = "<%=orderno %>" readonly></td>
 </tr>
 <tr>
 	<td>고객번호</td>
-	<td><input type ="text" name="custno"></td>
+	<td><input type ="text" name="custno" value = "<%=custno%>"></td>
 </tr>
 <tr>	
 	<td>고객이름</td>
-	<td><input type="text" name="custname"></td>
+	<td><input type="text" name="custname" value = "<%=custname%>"></td>
 </tr>
 <tr>
 	<td>메뉴번호</td>
 	<td>
-	<input type="radio" value="1" name="menuno"> 아메리카노 &nbsp;
-	<input type="radio" value="2" name="menuno"> 카페라떼 &nbsp;
-	<input type="radio" value="3" name="menuno"> 카페모카 &nbsp;
-	<input type="radio" value="4" name="menuno"> 돌체라때 &nbsp;
-	<input type="radio" value="5" name="menuno"> 콜드브루 &nbsp;
+	<input type="radio" value="1" name="menuno" <%if(menuno.equals("10001")) out.println("checked");%>> 아메리카노 &nbsp;
+	<input type="radio" value="2" name="menuno" <%if(menuno.equals("10002")) out.println("checked"); %>> 카페라떼 &nbsp;
+	<input type="radio" value="3" name="menuno" <%if(menuno.equals("10003")) out.println("checked"); %>>> 카페모카 &nbsp;
+	<input type="radio" value="4" name="menuno" <%if(menuno.equals("10004")) out.println("checked"); %>>> 돌체라때 &nbsp;
+	<input type="radio" value="5" name="menuno" <%if(menuno.equals("10005")) out.println("checked"); %>>> 콜드브루 &nbsp;
 	</td>
 </tr>
 <tr>
 	<td>수량</td>
 	<td>
-	<select>
-	<option>1개(추가 주문 시 선택)</option>
-	<option>2개</option>
-	<option>3개</option>
-	<option>4개</option>
-	<option>5개</option>
-	<option>6개</option>
-	<option>7개</option>
-	<option>8개</option>
-	<option>9개</option>
-	<option>10개</option>
+	<select name = "amount">
+	<option <%if(amount.equals("1")) out.println("selected"); %>>1개(추가 주문 시 선택)</option>
+	<option <%if(amount.equals("2")) out.println("selected"); %>>2개</option>
+	<option <%if(amount.equals("3")) out.println("selected"); %>>3개</option>
+	<option <%if(amount.equals("4")) out.println("selected"); %>>4개</option>
+	<option <%if(amount.equals("5")) out.println("selected"); %>>5개</option>
+	<option <%if(amount.equals("6")) out.println("selected"); %>>6개</option>
+	<option <%if(amount.equals("7")) out.println("selected"); %>>7개</option>
+	<option <%if(amount.equals("8")) out.println("selected"); %>>8개</option>
+	<option <%if(amount.equals("9")) out.println("selected"); %>>9개</option>
+	<option <%if(amount.equals("10")) out.println("selected"); %>>10개</option>
 	</select>
 	</td>
 </tr>
@@ -79,7 +93,7 @@
 </tr>
 <tr>
 <td colspan="2">
-<input type="submit" value="수정하기" onclick=""> 
+<input type="submit" value="수정하기" onclick="return modify()"> 
 <input type="button" value="취소" onclick="return search()">
 </td>
 </tr>
