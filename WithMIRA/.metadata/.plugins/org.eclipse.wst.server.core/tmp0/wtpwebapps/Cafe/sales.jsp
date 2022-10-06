@@ -21,7 +21,6 @@
 			<td>주문량</td>
 			<td>합계</td>
 		</tr>
-		<tr>
 		<%
 		
 			request.setCharacterEncoding("utf-8");
@@ -54,7 +53,7 @@
 			}
 		
 		%>
-		</tr>
+	
 	</table>
 </form>
 

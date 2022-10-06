@@ -50,7 +50,7 @@
 						<td><%=rs.getString(5) %></td>
 						<td><%=rs.getString(6) %>원</td>
 						<td><%=rs.getString(7) %></td>
-						<td>주문 수정</td>
+						<td><a href = "">주문 수정</a></td>
 						<td>주문 삭제</td>
 					</tr>
 					
