@@ -14,8 +14,9 @@
 <section style = "position: fixed; left: 0; width:100%; height: 100%; top:80px; background-color: lightgray" >
 <h2 style ="text-align: center;">카페메뉴 주문하기</h2>
 
-<form name="orderfrm1" style ="display: flex; justify-content: center; text-align: center; align-items: center;">
+<form name="orderfrm1" method="post" action="action.jsp" style ="display: flex; justify-content: center; text-align: center; align-items: center;">
 <table border="1">
+<input type="hidden" name="mode" value="insert">
 <tr>
 	<td>주문번호</td>
 	<%
@@ -36,7 +37,7 @@
 			e.printStackTrace();
 		}
 	%>
-	<td><input type = "text" value = "<%=orderno%>" readonly></td>
+	<td><input type = "text" value = "<%=orderno%>" name = "orderno" readonly></td>
 </tr>
 <tr>
 	<td>고객번호</td>
@@ -49,27 +50,27 @@
 <tr>
 	<td>메뉴번호</td>
 	<td>
-	<input type="radio" value="1" name="menuno"> 아메리카노 &nbsp;
-	<input type="radio" value="2" name="menuno"> 카페라떼 &nbsp;
-	<input type="radio" value="3" name="menuno"> 카페모카 &nbsp;
-	<input type="radio" value="4" name="menuno"> 돌체라때 &nbsp;
-	<input type="radio" value="5" name="menuno"> 콜드브루 &nbsp;
+	<input type="radio" value="10001" name="menuno"> 아메리카노 &nbsp;
+	<input type="radio" value="10002" name="menuno"> 카페라떼 &nbsp;
+	<input type="radio" value="10003" name="menuno"> 카페모카 &nbsp;
+	<input type="radio" value="10004" name="menuno"> 돌체라때 &nbsp;
+	<input type="radio" value="10005" name="menuno"> 콜드브루 &nbsp;
 	</td>
 </tr>
 <tr>
 	<td>수량</td>
 	<td>
-	<select>
-	<option>1개(추가 주문 시 선택)</option>
-	<option>2개</option>
-	<option>3개</option>
-	<option>4개</option>
-	<option>5개</option>
-	<option>6개</option>
-	<option>7개</option>
-	<option>8개</option>
-	<option>9개</option>
-	<option>10개</option>
+	<select name = "amount">
+	<option value = "1">1개(추가 주문 시 선택)</option>
+	<option value = "2" >2개</option>
+	<option value = "3" >3개</option>
+	<option value = "4" >4개</option>
+	<option value = "5" >5개</option>
+	<option value = "6" >6개</option>
+	<option value = "7" >7개</option>
+	<option value = "8" >8개</option>
+	<option value = "9" >9개</option>
+	<option value = "10">10개</option>
 	</select>
 	</td>
 </tr>

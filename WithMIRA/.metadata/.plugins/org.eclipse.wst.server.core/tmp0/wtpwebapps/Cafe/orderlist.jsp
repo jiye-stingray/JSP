@@ -12,10 +12,12 @@
 
 <section style = "position: fixed; left: 0; width:100%; height: 100%; top:80px; background-color: lightgray" >
 <h2 style ="text-align: center;">GSM 카페에 오신 걸 환영합니다</h2>
-<p style="postion:fixed; padding-left: 1200px">주문하기</p>
 <form name = "frm2" 
 	style = "display: flex; justify-content:center; text-align: center; align-items: center" >
-	<table border = 1>
+	<table border = 1 style = "border-collapse: collapse">
+	<tr>
+	<td colspan="9" style = "text-align: right; border-left: hidden; border-top:hidden; border-right:hidden"><a href="order.jsp">주문하기</a></td>
+	</tr>
 		<tr>
 			<td>주문번호</td>
 			<td>고객번호</td>
@@ -35,7 +37,7 @@
 			try{
 				String sql = "select o.orderno, o.custno, o.custname, m.menuname, o.amount, (o.amount * m.price), o.orderdate "+
 						"from menu_tbl m, order_tbl o "+
-						"where m.menuno = o.menuno ";
+						"where m.menuno = o.menuno order by o.orderno";
 				pstmt = conn.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery();
 				
@@ -49,9 +51,9 @@
 						<td><%=rs.getString(4) %></td>
 						<td><%=rs.getString(5) %></td>
 						<td><%=rs.getString(6) %>원</td>
-						<td><%=rs.getString(7) %></td>
+						<td><%=rs.getString(7).substring(0,4) + rs.getString(7).substring(5,7) + rs.getString(7).substring(8,10) %></td>
 						<td><a href = "modify.jsp?orderno=<%=rs.getString(1)%>">주문 수정</a></td>
-						<td><a href = "modify.jsp?orderno=<%=rs.getString(1)%>">주문 삭제</a></td>
+						<td><a href = "action.jsp?orderno=<%=rs.getString(1)%>&mode=delete">주문 삭제</a></td>
 					</tr>
 					
 				<%
