@@ -23,7 +23,6 @@
 <td>강사자격취득일</td>
 </tr>
 
-
 <%
 
 request.setCharacterEncoding("utf-8");
@@ -41,6 +40,10 @@ try{
 		%>
 			<tr>
 			<td><%=rs.getString(1) %></td>
+			<td><%=rs.getString(2) %></td>
+			<td><%=rs.getString(3) %></td>
+			<td>₩<%=rs.getString(4).substring(0,3)+ "," + rs.getString(4).substring(3,6) %></td>
+			<td><%=rs.getString(5).substring(0,4) + "원" +  rs.getString(5).substring(4,6) + "월" + rs.getString(5).substring(6,8)+ "일"%></td>
 			</tr>
 			
 		<%
