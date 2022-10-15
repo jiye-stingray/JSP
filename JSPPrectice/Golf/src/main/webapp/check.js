@@ -37,8 +37,6 @@ function JoinCheck(){
 	alert("수강신청이 정상적으로 완료되었습니다!");
 	frm.submit();
 	
-	window.location = "index.jsp";
-	
 	return true;
 }
 

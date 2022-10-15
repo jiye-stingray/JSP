@@ -15,7 +15,7 @@
 <section style = "position: fixed; top: 80px; left: 0; width: 100%; height: 100%; background-color: lightgray; ">
 <h2 style = "text-align: center; ">수강신청</h2>
 
-<form name = "frm"
+<form name = "frm" method="post" action="action.jsp"
  style = "display: flex; text-align: center; align-items: center; justify-content: center;">
 
 <table border = "1">
@@ -50,7 +50,7 @@
 <tr>
 <td>강의장소</td>
 <td>
-	<select>
+	<select name = "class_area">
 		<option>서울본원</option>
 		<option>성남분원</option>
 		<option>대전분원</option>
