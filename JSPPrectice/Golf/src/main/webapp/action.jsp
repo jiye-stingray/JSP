@@ -13,7 +13,7 @@
 	String regist_monsth = request.getParameter("regist_month").substring(0,6);
 	String c_no = request.getParameter("cNo");
 	String class_area = request.getParameter("class_area");
-	String tuition = request.getParameter("	");
+	String tuition = request.getParameter("tuition");
 	String teacher_code = "";
 	
 	String class_price = request.getParameter("className");
@@ -41,7 +41,7 @@
 	
 	try{
 		
-				String sql = "insert into tbl_class_202201 values(?,?,?,?,?)";
+		String sql = "insert into tbl_class_202201 values(?,?,?,?,?)";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, regist_monsth);
 		pstmt.setString(2, c_no);

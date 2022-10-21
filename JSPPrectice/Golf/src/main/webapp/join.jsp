@@ -19,6 +19,7 @@
  style = "display: flex; text-align: center; align-items: center; justify-content: center;">
 
 <table border = "1">
+
 <tr>
 	<td>수강일</td>
 	<td>
